@@ -307,8 +307,30 @@ function playRPS(playerChoice) {
         } else {
             clearInterval(interval);
 
-            // Paul always wins
-            let paulChoice;
+// 🔥 Show analyzing message first
+countdownElement.innerHTML = "Paul is analyzing your move...";
+resultElement.innerHTML = "";
+
+// ⏳ Delay before showing result
+setTimeout(() => {
+
+    // Paul always wins
+    let paulChoice;
+    if(playerChoice === "rock") paulChoice = "paper";
+    else if(playerChoice === "paper") paulChoice = "scissors";
+    else if(playerChoice === "scissors") paulChoice = "rock";
+
+    countdownElement.innerHTML = "Go!";
+    resultElement.innerHTML = `
+        You chose <b>${playerChoice}</b>.<br>
+        Paul chose <b>${paulChoice}</b>.<br>
+        <b>Paul wins!</b>
+    `;
+
+    setTimeout(showPage4, 3000);
+
+}, 2000); // 2 seconds analyzing delay
+
             if(playerChoice === "rock") paulChoice = "paper";
             else if(playerChoice === "paper") paulChoice = "scissors";
             else if(playerChoice === "scissors") paulChoice = "rock";
@@ -337,6 +359,7 @@ function showPage4() {
 </script>
 </body>
 </html>
+
 
 
 
