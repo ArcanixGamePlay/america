@@ -103,7 +103,7 @@ p {
     100% { transform: translateY(-50px) translateX(50px) scale(0.5); opacity:0;}
 }
 
-/* ================= GALLERY (FIXED SMOOTH LOOP) ================= */
+/* ================= GALLERY (SEAMLESS SCROLL) ================= */
 .placeholder-gallery {
     width: 100%;
     overflow: hidden;
@@ -114,14 +114,8 @@ p {
 
 .placeholder-track {
     display: flex;
-    gap: 15px;
     width: max-content;
     animation: scroll-left 20s linear infinite;
-}
-
-@keyframes scroll-left {
-    from { transform: translateX(0); }
-    to { transform: translateX(calc(-50% - 7.5px)); }
 }
 
 .gallery-img {
@@ -132,9 +126,15 @@ p {
     border: 2px solid #d580ff;
     border-radius: 12px;
     box-sizing: border-box;
+    margin-right: 15px; /* ✅ replace gap with margin */
 }
 
-/* OPTIONAL: pause on hover */
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Pause animation on hover */
 .placeholder-gallery:hover .placeholder-track {
     animation-play-state: paused;
 }
@@ -156,6 +156,7 @@ p {
     box-shadow: 0 0 20px #d580ff;
 }
 </style>
+
 
 </head>
 <body>
@@ -365,6 +366,7 @@ function showPage4() {
 </script>
 </body>
 </html>
+
 
 
 
