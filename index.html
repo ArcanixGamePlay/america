@@ -9,22 +9,22 @@
 
 .placeholder-gallery {
     width: 100%;
-    overflow: hidden; 
-    margin-top: 20px;
-    border-radius: 12px;
+    overflow: hidden;
 }
 
 .placeholder-track {
-  display: flex;
-  gap: 15px;
-  width: max-content;
-  animation: scroll-left 10s linear infinite; /* tuloy-tuloy na scroll */
+    display: flex;
+    gap: 15px;
+    width: max-content;
+    animation: scroll-left 20s linear infinite;
 }
 
 @keyframes scroll-left {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); } /* or -100% kung na-duplicate lahat ng images */
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-50% - 7.5px)); }
 }
+
+
 
 
 body {
@@ -368,6 +368,7 @@ function showPage4() {
 </script>
 </body>
 </html>
+
 
 
 
