@@ -139,13 +139,15 @@ p {
 }
 
 .gallery-img {
-    flex: 0 0 40px;   /* same sa width */
+    flex: 0 0 40px;
     width: 40px;
     height: 40px;
     object-fit: cover;
     border: 2px solid #d580ff;
     border-radius: 12px;
+    box-sizing: border-box; /* ⭐ IMPORTANT */
 }
+
 
 
 
@@ -342,6 +344,7 @@ function showPage4() {
 </script>
 </body>
 </html>
+
 
 
 
