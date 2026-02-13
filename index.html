@@ -292,49 +292,7 @@ function declineContract() {
     document.getElementById('pageRPS').classList.remove('hidden'); // show RPS
 }
 
-function playRPS(playerChoice) {
-    const countdownElement = document.getElementById("countdownRPS");
-    const resultElement = document.getElementById("resultRPS");
-
-    resultElement.innerHTML = "";
-    countdownElement.innerHTML = "Get ready...";
-
-    let count = 3;
-
-    const interval = setInterval(() => {
-        if (count > 0) {
-            countdownElement.innerHTML = count;
-            count--;
-        } else {
-            clearInterval(interval);
-
-            // 🔥 SHOW ANALYZING MESSAGE
-            countdownElement.innerHTML = "Paul is analyzing your move...";
-            resultElement.innerHTML = "";
-
-            // ⏳ Delay before revealing result
-            setTimeout(() => {
-
-                let paulChoice;
-                if (playerChoice === "rock") paulChoice = "paper";
-                else if (playerChoice === "paper") paulChoice = "scissors";
-                else if (playerChoice === "scissors") paulChoice = "rock";
-
-                countdownElement.innerHTML = "Go!";
-
-                resultElement.innerHTML = `
-                    You chose <b>${playerChoice}</b>.<br>
-                    Paul chose <b>${paulChoice}</b>.<br>
-                    <b>Paul wins!</b>
-                `;
-
-                // Go to final page after 3 seconds
-                setTimeout(showPage4, 3000);
-
-            }, 2000); // 2 seconds analyzing delay
-        }
-    }, 1000);
-}
+function playRPS(playerChoice) { const countdownElement = document.getElementById("countdownRPS"); const resultElement = document.getElementById("resultRPS"); resultElement.innerHTML = ""; countdownElement.innerHTML = "Get ready..."; let count = 3; const interval = setInterval(() => { if(count > 0){ countdownElement.innerHTML = count; count--; } else { clearInterval(interval); // Paul always wins let paulChoice; if(playerChoice === "rock") paulChoice = "paper"; else if(playerChoice === "paper") paulChoice = "scissors"; else if(playerChoice === "scissors") paulChoice = "rock"; countdownElement.innerHTML = "Go!"; resultElement.innerHTML = You chose <b>${playerChoice}</b>.<br>Paul chose <b>${paulChoice}</b>.<br><b>Paul wins!</b>; // Show final page after 1 second setTimeout(showPage4, 3000); } }, 1000); }
 
 
 // Add at the end of your script
@@ -351,6 +309,7 @@ function showPage4() {
 </script>
 </body>
 </html>
+
 
 
 
