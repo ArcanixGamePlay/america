@@ -140,6 +140,22 @@ p {
     box-sizing: border-box; /* ⭐ IMPORTANT */
 }
 
+    .choices button {
+    font-size: 40px;
+    padding: 15px 25px;
+    margin: 10px;
+    background: black;
+    border: 2px solid #d580ff;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.choices button:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 20px #d580ff;
+}
+
 
 
 
@@ -216,9 +232,9 @@ p {
     <h1>Rock Paper Scissors</h1>
     <p>Bot Name: <b>Paul</b> (AKALA TALAGA MANANALO SAKIN!)</p>
     <div class="choices">
-        <button onclick="playRPS('rock')">Rock</button>
-        <button onclick="playRPS('paper')">Paper</button>
-        <button onclick="playRPS('scissors')">Scissors</button>
+      <button onclick="playRPS('rock')">🪨</button>
+      <button onclick="playRPS('paper')">📄</button>
+      <button onclick="playRPS('scissors')">✂️</button>
     </div>
     <div class="countdown" id="countdownRPS"></div>
     <div class="result" id="resultRPS"></div>
@@ -350,6 +366,7 @@ function showPage4() {
 </script>
 </body>
 </html>
+
 
 
 
