@@ -15,25 +15,17 @@
 }
 
 .placeholder-track {
-    display: flex;
-    gap: 15px;
-    animation: scroll-left-right 6s infinite alternate linear;
+  display: flex;
+  gap: 15px;
+  width: max-content;
+  animation: scroll-left 10s linear infinite; /* tuloy-tuloy na scroll */
 }
 
-.placeholder-box {
-    flex: 0 0 150px;
-    height: 150px;
-    background-color: #000;
-    border: 2px solid #d580ff;
-    border-radius: 12px;
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* or -100% kung na-duplicate lahat ng images */
 }
 
-/* Animation: move left → right → left continuously */
-@keyframes scroll-left-right {
-    0% { transform: translateX(0); }
-    50% { transform: translateX(-100px); } 
-    100% { transform: translateX(0); }
-}
 
 body {
     margin: 0;
@@ -344,6 +336,7 @@ function showPage4() {
 </script>
 </body>
 </html>
+
 
 
 
