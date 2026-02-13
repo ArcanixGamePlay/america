@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Future Contract – Confidential</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Share+Tech+Mono&display=swap');
+
+.placeholder-gallery {
+    width: 100%;
+    overflow: hidden; 
+    margin-top: 20px;
+    border-radius: 12px;
+}
+
+.placeholder-track {
+    display: flex;
+    gap: 15px;
+    animation: scroll-left-right 6s infinite alternate linear;
+}
+
+.placeholder-box {
+    flex: 0 0 150px;
+    height: 150px;
+    background-color: #000;
+    border: 2px solid #d580ff;
+    border-radius: 12px;
+}
+
+/* Animation: move left → right → left continuously */
+@keyframes scroll-left-right {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(-100px); } 
+    100% { transform: translateX(0); }
+}
+
+body {
+    margin: 0;
+    font-family: 'Share Tech Mono', monospace;
+    background: radial-gradient(circle at center, #000000 0%, #0d0015 100%);
+    color: #d580ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    max-width: 900px;
+    padding: 40px;
+    border: 2px solid #d580ff;
+    border-radius: 15px;
+    box-shadow: 0 0 30px #d580ff, 0 0 60px #a020f0, 0 0 90px #d580ff;
+    backdrop-filter: blur(10px);
+    transition: all 1s ease;
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #d580ff, 0 0 20px #a020f0, 0 0 40px #d580ff;
+}
+
+p {
+    font-size: 1.3em;
+    line-height: 1.6;
+    color: #d580ff;
+}
+
+.button {
+    margin-top: 30px;
+    padding: 15px 40px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #000;
+    border: 2px solid #d580ff;
+    color: #d580ff;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 0 10px #d580ff, 0 0 20px #a020f0;
+    transition: all 0.3s ease;
+}
+.button:hover {
+    background-color: #d580ff;
+    color: #000;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #a020f0, 0 0 40px #d580ff, 0 0 60px #a020f0;
+}
+
+.hidden { display: none; }
+
+.glitch {
+    position: relative;
+    color: #d580ff;
+    font-weight: bold;
+    animation: glitch 1.5s infinite;
+}
+@keyframes glitch {
+    0% { text-shadow: 2px 0 #a020f0, -2px 0 #d580ff; }
+    20% { text-shadow: -2px 0 #a020f0, 2px 0 #d580ff; }
+    40% { text-shadow: 2px 0 #d580ff, -2px 0 #a020f0; }
+    60% { text-shadow: -2px 0 #d580ff, 2px 0 #a020f0; }
+    80% { text-shadow: 2px 0 #a020f0, -2px 0 #d580ff; }
+    100% { text-shadow: -2px 0 #a020f0, 2px 0 #d580ff; }
+}
+
+.particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background-color: #d580ff;
+    border-radius: 50%;
+    animation: floatUp linear infinite;
+    opacity: 0.7;
+}
+@keyframes floatUp {
+    0% { transform: translateY(100vh) translateX(0) scale(1); opacity:0.7;}
+    100% { transform: translateY(-50px) translateX(50px) scale(0.5); opacity:0;}
+}
+
+.placeholder-track {
+    display: flex;
+    gap: 15px;
+    width: max-content; /* Important for scrolling content */
+    animation: scroll-left 10s linear infinite;
+}
+
+/* Duplicate the items inside the track in HTML for smooth loop */
+
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Moves half width if you duplicated content */
+}
+
+</style>
+</head>
+<body>
+
+<!-- Page 0 -->
+<div class="container" id="page0">
+    <h1 class="glitch">Welcome,<br> Merilyn A. Dawit!</h1>
+    <button class="button" onclick="nextPage()"> 
+        PLEASE HELP US! CLICK THE LINK TO CONTINUE
+    </button>
+</div>
+
+<!-- Page 1 -->
+<div class="container hidden" id="page1">
+    <h1 class="glitch">Global Tech Council America</h1>
+    <p>
+        Greetings, <strong>Merilyn A. Dawit</strong>.<br>
+        We are representatives from the 50th Century Digital Authority.<br>
+        After analyzing historical data, you have been identified as a key contributor to the evolution of Information Technology.
+    </p>
+    <button class="button" onclick="nextPage()">Review Your Profile</button>
+</div>
+
+<!-- Page 2 -->
+<div class="container hidden" id="page2">
+    <h1 class="glitch">Future Profile: Merilyn A. Dawit</h1>
+    <p>
+        Position: Senior AI Systems Architect<br>
+        Quantum Network Engineer<br>
+        Cybersecurity Strategist Level 9<br>
+        Creator of Next-Gen Cloud Infrastructure<br>
+        Pioneer in Ethical Artificial Intelligence<br><br>
+        Your innovations shaped global technology standards in Web Design and IT development.
+    </p>
+    <button class="button" onclick="revealContract()">Accept Future Opportunity</button>
+</div>
+
+<!-- Page 3 -->
+<div class="container hidden" id="page3">
+    <h1 class="glitch">Lifetime <br>Partnership <br>Agreement</h1>
+    <p>
+        Contract Start Date: February 14, 2026<br>
+        Position: The Love of My Life<br>
+        Duration: Lifetime<br>
+        HAPPY VALENTINES HAPHAP!!!!!  
+    </p>
+    <div class="placeholder-gallery">
+    <div class="placeholder-track">
+        <!-- Original items -->
+        <div class="placeholder-box"></div>
+        <div class="placeholder-box"></div>
+        <div class="placeholder-box"></div>
+        <div class="placeholder-box"></div>
+        <div class="placeholder-box"></div>
+        <div class="placeholder-box"></div>
+        <div class="placeholder-box"></div>
+        <div class="placeholder-box"></div>
+
+        <!-- Duplicate items for smooth loop -->
+        <div class="placeholder-box"></div>
+        <div class="placeholder-box"></div>
+        <div class="placeholder-box"></div>
+        <div class="placeholder-box"></div>
+        <div class="placeholder-box"></div>
+        <div class="placeholder-box"></div>
+        <div class="placeholder-box"></div>
+        <div class="placeholder-box"></div>
+    </div>
+</div>
+
+    <div style="margin-top: 20px;">
+        <button class="button" onclick="activateContract()">Approve Contract</button>
+        <button class="button" onclick="declineContract()">Decline Contract</button>
+    </div>
+</div>
+
+<!-- Page RPS (hidden by default) -->
+<div class="container hidden" id="pageRPS">
+    <h1>Rock Paper Scissors</h1>
+    <p>Bot Name: <b>Paul</b> (AKALA TALAGA MANANALO SAKIN!)</p>
+    <div class="choices">
+        <button onclick="playRPS('rock')">Rock</button>
+        <button onclick="playRPS('paper')">Paper</button>
+        <button onclick="playRPS('scissors')">Scissors</button>
+    </div>
+    <div class="countdown" id="countdownRPS"></div>
+    <div class="result" id="resultRPS"></div>
+</div>
+
+
+<!-- Page 4 -->
+<div class="container hidden" id="page4">
+    <h1 class="glitch">Contract Successfully Activated ❤️</h1>
+    <p>Welcome to our lifetime project together, <strong>Merilyn A. Dawit</strong>.</p>
+    <p>1 Corinthians 13:4 (NIV)<b>
+"Love is patient, love is kind. It does not envy, it does not boast, it is not proud."</p>
+</div>
+
+<script>
+// Floating particles
+for (let i=0; i<100; i++){
+    let p = document.createElement('div');
+    p.className='particle';
+    p.style.left=Math.random()*window.innerWidth+'px';
+    p.style.top=Math.random()*window.innerHeight+'px';
+    p.style.animationDuration=(Math.random()*5+3)+'s';
+    document.body.appendChild(p);
+}
+
+// Page transitions using currentPage variable
+let currentPage = 0;
+
+function nextPage() {
+    if(currentPage === 0){
+        document.getElementById('page0').classList.add('hidden');
+        document.getElementById('page1').classList.remove('hidden');
+        currentPage = 1;
+    } else if(currentPage === 1){
+        document.getElementById('page1').classList.add('hidden');
+        document.getElementById('page2').classList.remove('hidden');
+        currentPage = 2;
+    }
+}
+
+function revealContract(){
+    document.getElementById('page2').classList.add('hidden');
+    document.getElementById('page3').classList.remove('hidden');
+    document.body.style.background = "radial-gradient(circle at center, #000000 0%, #330033 100%)";
+    document.body.style.color="#d580ff";
+}
+
+function activateContract(){
+    document.getElementById('page3').classList.add('hidden');
+    document.getElementById('page4').classList.remove('hidden');
+    launchConfetti();
+}
+
+// Confetti effect
+function launchConfetti(){
+    for(let i=0;i<150;i++){
+        let confetti = document.createElement('div');
+        confetti.className='particle';
+        confetti.style.width='8px';
+        confetti.style.height='8px';
+        confetti.style.backgroundColor=`hsl(${Math.random()*360},80%,70%)`;
+        confetti.style.left=Math.random()*window.innerWidth+'px';
+        confetti.style.top='-10px';
+        confetti.style.animationDuration=(Math.random()*3+2)+'s';
+        document.body.appendChild(confetti);
+    }
+}
+
+function declineContract() {
+    document.getElementById('page3').classList.add('hidden'); // hide contract
+    document.getElementById('pageRPS').classList.remove('hidden'); // show RPS
+}
+
+function playRPS(playerChoice) {
+    const countdownElement = document.getElementById("countdownRPS");
+    const resultElement = document.getElementById("resultRPS");
+
+    resultElement.innerHTML = "";
+    countdownElement.innerHTML = "Get ready...";
+
+    let count = 3;
+    const interval = setInterval(() => {
+        if(count > 0){
+            countdownElement.innerHTML = count;
+            count--;
+        } else {
+            clearInterval(interval);
+
+            // Paul always wins
+            let paulChoice;
+            if(playerChoice === "rock") paulChoice = "paper";
+            else if(playerChoice === "paper") paulChoice = "scissors";
+            else if(playerChoice === "scissors") paulChoice = "rock";
+
+            countdownElement.innerHTML = "Go!";
+            resultElement.innerHTML = `You chose <b>${playerChoice}</b>.<br>Paul chose <b>${paulChoice}</b>.<br><b>Paul wins!</b>`;
+
+            // Show final page after 1 second
+            setTimeout(showPage4, 3000);
+        }
+    }, 1000);
+}
+
+// Add at the end of your script
+function showPage4() {
+    document.getElementById('pageRPS').classList.add('hidden');
+    document.getElementById('page3').classList.add('hidden');
+    document.getElementById('page4').classList.remove('hidden');
+    document.body.style.background = "radial-gradient(circle at center, #000000 0%, #0d0015 100%)";
+    document.body.style.color="#d580ff";
+    launchConfetti();
+}
+
+
+</script>
+</body>
+</html>
+
+
