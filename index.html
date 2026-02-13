@@ -308,17 +308,16 @@ function playRPS(playerChoice) {
         } else {
             clearInterval(interval);
 
-            // 🔥 Show analyzing message
+            // 🔥 Analyzing message
             countdownElement.innerHTML = "Paul is analyzing your move...";
             resultElement.innerHTML = "";
 
-            // ⏳ Wait 2 seconds before result
             setTimeout(() => {
 
                 let paulChoice;
                 if (playerChoice === "rock") paulChoice = "paper";
                 else if (playerChoice === "paper") paulChoice = "scissors";
-                else if (playerChoice === "scissors") paulChoice = "rock";
+                else paulChoice = "rock";
 
                 countdownElement.innerHTML = "Go!";
                 resultElement.innerHTML = `
@@ -336,6 +335,7 @@ function playRPS(playerChoice) {
 
 
 
+
 // Add at the end of your script
 function showPage4() {
     document.getElementById('pageRPS').classList.add('hidden');
@@ -350,6 +350,7 @@ function showPage4() {
 </script>
 </body>
 </html>
+
 
 
 
